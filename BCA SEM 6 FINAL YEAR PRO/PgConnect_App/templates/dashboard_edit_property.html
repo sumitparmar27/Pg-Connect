@@ -1,0 +1,317 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi">
+    <title>MaxLand - Real Estate & Property HTML5 Template</title>
+    <link rel="icon" type="image/png" href="static/images/favicon.png">
+    <link rel="stylesheet" href="static/css/all.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/nice-select.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+    <link rel="stylesheet" href="static/css/select2.min.css">
+    <link rel="stylesheet" href="static/css/animate.css">
+    <link rel="stylesheet" href="static/css/animated_barfiller.css">
+    <link rel="stylesheet" href="static/css/summernote.min.css">
+    <link rel="stylesheet" href="static/css/scroll_button.css">
+    <link rel="stylesheet" href="static/css/utilities.css">
+    <link rel="stylesheet" href="static/css/jquery.simple-bar-graph.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/responsive.css">
+</head>
+
+<body>
+
+    <!--=========================
+        DASHBOARD INFO START
+    ==========================-->
+
+    <section class="dashboard">
+    {% include 'dashboard_sidebar.html' %}
+    <div class="dashboard_content">
+        <h2 class="dashboard_title">Update Property
+            <a class="common_btn" href="/dashboard_property">All Properties</a>
+        </h2>
+
+        <div class="dashboard_add_property">
+            <form action="{% url 'update_pg' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <!-- Basic Info -->
+                <div class="add_property_info wow fadeInUp" data-wow-duration="1.5s">
+                    <h3>Basic Information</h3>
+                    <div class="row">
+
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="add_property_input">
+                                <label>PG Name</label>
+                                <input type="text" name="name" value="{{ pgdata.name }}" placeholder="PG Name">
+                            </div>
+                        </div>
+
+
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="add_property_input">
+                                <label>PG Type</label>
+                                <select class="select_2" name="pgtype">
+                                    <option value="">Select Type</option>
+                                    {% for i in typedata %}
+                                        <option value="{{ i.id }}" {% if i.id == pgdata.typeid.id %}selected{% endif %}>{{ i.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+<div class="col-xxl-4 col-md-6">
+    <div class="add_property_input">
+        <label>Sharing Choice</label>
+        <select class="select_2" name="sharing">
+            <option value="">Select Choice</option>
+            {% for sharing_option in sharing_options %}
+
+                <option value="{{ sharing_option }}" {% if sharing_option == pgdata.sharing %}selected{% endif %}>{{ sharing_option }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
+
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="add_property_input">
+                                <label>Area</label>
+                                <input type="text" name="area" value="{{ pgdata.area }}" placeholder="Area">
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="add_property_input">
+                                <label>Landmark</label>
+                                <input type="text" name="landmark" value="{{ pgdata.landmark }}" placeholder="Landmark">
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="add_property_input">
+                                <label>Address</label>
+                                <textarea name="address">{{ pgdata.address }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="add_property_input">
+                                <label>Pincode</label>
+                                <input type="text" name="pincode" value="{{ pgdata.pincode }}">
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="add_property_input">
+                                <label>Price</label>
+                                <input type="text" name="price" value="{{ pgdata.price }}">
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-4 col-md-6">
+                            <div class="add_property_input">
+                                <label>Status</label>
+                                <select class="select_2" name="status">
+                                    <option value="">Status</option>
+                                    <option value="Available" {% if pgdata.status == "Available" %}selected{% endif %}>Available</option>
+                                    <option value="Not Available" {% if pgdata.status == "Not Available" %}selected{% endif %}>Not Available</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-12">
+                            <div class="add_property_input">
+                                <label>Description</label>
+                                <textarea name="description">{{ pgdata.description }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Info -->
+                <div class="add_property_info wow fadeInUp" data-wow-duration="1.5s">
+    <h3>Others Information</h3>
+    <div class="row">
+        <div class="col-xxl-4 col-md-6">
+            <div class="add_property_input">
+                <label>Total Room</label>
+                <input type="text" name="room" value="{{ pgdata.rooms }}">
+            </div>
+        </div>
+        <div class="col-xxl-4 col-md-6">
+            <div class="add_property_input">
+                <label>Bed</label>
+                <input type="text" name="bed" value="{{ pgdata.bed }}">
+            </div>
+        </div>
+        <div class="col-xxl-4 col-md-6">
+            <div class="add_property_input">
+                <label>Bathroom</label>
+                <input type="text" name="bathroom" value="{{ pgdata.Bathroom }}">
+            </div>
+        </div>
+        <div class="col-xxl-4 col-md-6">
+            <div class="add_property_input">
+                <label>Kitchen</label>
+                <input type="text" name="kitchen" value="{{ pgdata.kitchen }}">
+            </div>
+        </div>
+        <div class="col-xxl-4 col-md-6">
+            <div class="add_property_input">
+                <label>Balcony</label>
+                <input type="text" name="balcony" value="{{ pgdata.balcony }}">
+            </div>
+        </div>
+        <div class="col-xxl-4 col-md-6">
+            <div class="add_property_input">
+                <label>Parking</label>
+                <input type="text" name="parking" value="{{ pgdata.parking }}">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                <!-- Images/Videos -->
+              <div class="add_property_info wow fadeInUp" data-wow-duration="1.5s">
+    <h3>Image and Video</h3>
+    <div class="row">
+        {% for num in image_numbers %}
+        <div class="col-xxl-4 col-md-6">
+            <div class="add_property_input">
+                <label>Upload Image {{ num }}</label>
+                <input type="file" name="img{{ num }}">
+                {% if num == 1 and pgdata.img1 %}
+                    <img src="{{ pgdata.img1.url }}" width="100">
+                {% elif num == 2 and pgdata.img2 %}
+                    <img src="{{ pgdata.img2.url }}" width="100">
+                {% elif num == 3 and pgdata.img3 %}
+                    <img src="{{ pgdata.img3.url }}" width="100">
+                {% elif num == 4 and pgdata.img4 %}
+                    <img src="{{ pgdata.img4.url }}" width="100">
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="col-xxl-4">
+            <div class="add_property_input">
+                <label>Upload Video</label>
+                <input type="file" name="video">
+                {% if pgdata.video %}
+                    <video width="200" controls>
+                        <source src="{{ pgdata.video.url }}" type="video/mp4">
+                    </video>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                <!-- Facilities -->
+              <div class="add_property_info wow fadeInUp" data-wow-duration="1.5s">
+    <h3>Facilities</h3>
+    <div class="row">
+        {% for facility in facilities_list %}
+        <div class="col-xxl-4 col-md-6">
+            <div class="add_property_input checkbox">
+                <label>
+                    <input type="checkbox" name="facilities" value="{{ facility }}"
+                        {% if facility in pgdata.facilities %}checked{% endif %}>
+                    {{ facility }}
+                </label>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="add_property_info wow fadeInUp" data-wow-duration="1.5s">
+    <div class="text-end mt-4">
+        <button type="submit" class="common_btn">Update PG</button>
+    </div>
+</div>
+
+
+                <!-- JS -->
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        let checkboxes = document.querySelectorAll(".service-checkbox");
+                        let textBox = document.getElementById("selected_services");
+
+                        function updateSelected() {
+                            let selectedValues = Array.from(checkboxes)
+                                .filter(i => i.checked)
+                                .map(i => i.value)
+                                .join(", ");
+                            textBox.value = selectedValues;
+                        }
+
+                        checkboxes.forEach((checkbox) => {
+                            checkbox.addEventListener("change", updateSelected);
+                        });
+
+                        updateSelected();  // initialize
+                    });
+                </script>
+            </form>
+        </div>
+    </div>
+</section>
+
+    <!--=========================
+        DASHBOARD INFO END
+    ==========================-->
+
+
+    <!--================================
+        SCROLL BUTTON START
+    =================================-->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+        </svg>
+    </div>
+    <!--================================
+        SCROLL BUTTON END
+    =================================-->
+
+
+    <!--jquery library js-->
+    <script src="static/js/jquery-3.7.1.min.js"></script>
+    <!--bootstrap js-->
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <!--font-awesome js-->
+    <script src="static/js/Font-Awesome.js"></script>
+    <!--nice-select js-->
+    <script src="static/js/jquery.nice-select.min.js"></script>
+    <!--select-2 js-->
+    <script src="static/js/select2.min.js"></script>
+    <!--slick js-->
+    <script src="static/js/slick.min.js"></script>
+    <!--marquee js-->
+    <script src="static/js/jquery.marquee.min.js"></script>
+    <!--YTPlayer js-->
+    <script src="static/js/jquery.youtube-background.min.js"></script>
+    <!--wow js-->
+    <script src="static/js/wow.min.js"></script>
+    <!--animated barfiller js-->
+    <script src="static/js/animated_barfiller.js"></script>
+    <!--simple-bar-graph js-->
+    <script src="static/js/jquery.simple-bar-graph.min.js"></script>
+    <!--sticky sidebar js-->
+    <script src="static/js/sticky_sidebar.js"></script>
+    <!--summernote js-->
+    <script src="static/js/summernote.min.js"></script>
+    <!--scroll button js-->
+    <script src="static/js/scroll_button.js"></script>
+    <!--main/custom js-->
+    <script src="static/js/script.js"></script>
+
+
+
+
+
+
+</body></html>

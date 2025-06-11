@@ -1,0 +1,436 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi">
+    <title>MaxLand - Real Estate & Property HTML5 Template</title>
+    <link rel="icon" type="image/png" href="static/images/favicon.png">
+    <link rel="stylesheet" href="static/css/all.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/nice-select.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+    <link rel="stylesheet" href="static/css/select2.min.css">
+    <link rel="stylesheet" href="static/css/animate.css">
+    <link rel="stylesheet" href="static/css/animated_barfiller.css">
+    <link rel="stylesheet" href="static/css/summernote.min.css">
+    <link rel="stylesheet" href="static/css/scroll_button.css">
+    <link rel="stylesheet" href="static/css/utilities.css">
+    <link rel="stylesheet" href="static/css/jquery.simple-bar-graph.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/responsive.css">
+</head>
+
+<body>
+
+    <!--=============================
+        MAIN MENU START
+    ==============================-->
+   {% include 'nav.html' %}
+
+    <div class="menu_offcanvas offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" style="background: url(static/images/offcanvas_bg.jpg);">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="far fa-times"></i></button>
+        <div class="offcanvas-body">
+            <a class="offcanvas_logo" href="index.html">
+                <img src="static/images/logo_1.png" alt="MaxLand" class="img-fluid w-100">
+            </a>
+            <p class="short_description">Through a combination of lectures, readings, and discussions, students will
+                gain.</p>
+            <div class="offcanvas_blog">
+                <h3>Featured Listings</h3>
+                <ul>
+                    <li>
+                        <div class="img">
+                            <img src="static/images/offcanvas_img_3.jpg" alt="blog" class="img-fluid w-100">
+                        </div>
+                        <div class="text">
+                            <p><i class="far fa-clock"></i> 10 Dec 2024</p>
+                            <a class="title" href="#">Hermosa Casa al Norte</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="img">
+                            <img src="static/images/offcanvas_img_1.jpg" alt="blog" class="img-fluid w-100">
+                        </div>
+                        <div class="text">
+                            <p><i class="far fa-clock"></i> 10 Dec 2024</p>
+                            <a class="title" href="#">Stunning mansion in Reno</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="img">
+                            <img src="static/images/offcanvas_img_2.jpg" alt="blog" class="img-fluid w-100">
+                        </div>
+                        <div class="text">
+                            <p><i class="far fa-clock"></i> 10 Dec 2024</p>
+                            <a class="title" href="#">Luxury Villa In Los Angeles</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="offcanvas_contact">
+                <h3>contact information</h3>
+                <a class="call" href="callto:40276328246">+(402) 763 282 46</a>
+                <a class="mail" href="mailto:example@gmail.com">example@gmail.com</a>
+                <ul class="d-flex flex-wrap">
+                    <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a class="youtube" href="#"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--=============================
+        MAIN MENU END
+    ==============================-->
+
+
+    <!--=============================
+        BREADCRUMBS START
+    ==============================-->
+    <section class="breadcrumbs" style="background: url(static/images/breadcrumbs_bg.jpg);">
+        <div class="breadcrumbs_overly">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 justify-content-center">
+                        <div class="breadcrumb_text wow fadeInUp" data-wow-duration="1.5s">
+                            <h1>Pricing Plans</h1>
+                            <ul class=" d-flex flex-wrap justify-content-center">
+                                <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
+                                <li><a href="#">Pricing Plans</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=============================
+        BREADCRUMBS END
+    ==============================-->
+
+
+    <!--=============================
+        PRICEING START
+    ==============================-->
+    <section class="pricing_area pt_95 xs_pt_75">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-duration="1.5s">
+                    <div class=" single_pricing">
+                        <h5>Basic</h5>
+                        <p>Basic listing submission, active for 30 days</p>
+                        <h2>$259.00</h2>
+                        <ul>
+                            <li>All Operating Supported</li>
+                            <li>20 Property Listings</li>
+                            <li>30 Days Availability</li>
+                            <li>Feature Properties</li>
+                            <li>24/7 Full support</li>
+                        </ul>
+                        <a class="common_btn" href="checkout.html">Choose This Pack</a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-duration="1.5s">
+                    <div class=" single_pricing">
+                        <h5>Professional</h5>
+                        <p>Basic listing submission, active for 60 days</p>
+                        <h2>$699.00</h2>
+                        <ul>
+                            <li>All Operating Supported</li>
+                            <li>30 Property Listings</li>
+                            <li>60 Days Availability</li>
+                            <li>Feature Properties</li>
+                            <li>24/7 Full support</li>
+                        </ul>
+                        <a class="common_btn" href="checkout.html">Choose This Pack</a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 wow fadeInUp" data-wow-duration="1.5s">
+                    <div class=" single_pricing">
+                        <h5>Business</h5>
+                        <p>Basic listing submission, active for 30 days</p>
+                        <h2>$999.00</h2>
+                        <ul>
+                            <li>All Operating Supported</li>
+                            <li>40 Property Listings</li>
+                            <li>90 Days Availability</li>
+                            <li>Feature Properties</li>
+                            <li>24/7 Full support</li>
+                        </ul>
+                        <a class="common_btn" href="checkout.html">Choose This Pack</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=============================
+        PRICEING END
+    ==============================-->
+
+
+    <!--=============================
+        FAQ START
+    ==============================-->
+    <section class="pricing_faq_area faq_area pt_115 xs_pt_95 pb_120 xs_pb_100">
+        <div class="container">
+            <div class="row justify-content-center text-align-center">
+                <div class="col-xxl-6 col-lg-7 wow fadeInUp" data-wow-duration="1.5s">
+                    <div class=" section_heading mb_35">
+                        <h2>Frequently Asked Questions (FAQ) On MaxLand </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center wow fadeInUp" data-wow-duration="1.5s">
+                <div class=" col-lg-8">
+                    <div class="faq_accordion accordion accordion-flush" id="accordionFlushExample">
+                        <div class=" accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button show" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    How can i get MaxLand aid to live off campus?</button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Nullam metus metus, imperdiet ut ex quis, ultrices
+                                    feugiat neque. Etiam vitae accumsan neque, id gravida ligula. Donec ut tincidunt
+                                    velit. Sed gravida erat nunc, ac vehicula orci dignissim id. Praesent diam
+                                    magna. Sed tincidunt mi libero.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                    What the first step of the home buying process?</button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Nullam metus metus, imperdiet ut ex quis, ultrices
+                                    feugiat neque. Etiam vitae accumsan neque, id gravida ligula. Donec ut tincidunt
+                                    velit. Sed gravida erat nunc, ac vehicula orci dignissim id. Praesent diam
+                                    magna. Sed tincidunt mi libero.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                    How should I prepare my house before selling it?</button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Nullam metus metus, imperdiet ut ex quis, ultrices
+                                    feugiat neque. Etiam vitae accumsan neque, id gravida ligula. Donec ut tincidunt
+                                    velit. Sed gravida erat nunc, ac vehicula orci dignissim id. Praesent diam
+                                    magna. Sed tincidunt mi libero.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                    What is an agent’s commission fee?</button>
+                            </h2>
+                            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Nullam metus metus, imperdiet ut ex quis, ultrices
+                                    feugiat neque. Etiam vitae accumsan neque, id gravida ligula. Donec ut tincidunt
+                                    velit. Sed gravida erat nunc, ac vehicula orci dignissim id. Praesent diam
+                                    magna. Sed tincidunt mi libero.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                                    What is the first step in buying a home?</button>
+                            </h2>
+                            <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Nullam metus metus, imperdiet ut ex quis, ultrices
+                                    feugiat neque. Etiam vitae accumsan neque, id gravida ligula. Donec ut tincidunt
+                                    velit. Sed gravida erat nunc, ac vehicula orci dignissim id. Praesent diam
+                                    magna. Sed tincidunt mi libero.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingSix">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                                    Should I sell my current property before buying a new one?</button>
+                            </h2>
+                            <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Nullam metus metus, imperdiet ut ex quis, ultrices
+                                    feugiat neque. Etiam vitae accumsan neque, id gravida ligula. Donec ut tincidunt
+                                    velit. Sed gravida erat nunc, ac vehicula orci dignissim id. Praesent diam
+                                    magna. Sed tincidunt mi libero.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingSeven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+                                    How many houses should I view before purchasing one?</button>
+                            </h2>
+                            <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">Nullam metus metus, imperdiet ut ex quis, ultrices
+                                    feugiat neque. Etiam vitae accumsan neque, id gravida ligula. Donec ut tincidunt
+                                    velit. Sed gravida erat nunc, ac vehicula orci dignissim id. Praesent diam
+                                    magna. Sed tincidunt mi libero.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=============================
+        FAQ END
+    ==============================-->
+
+
+    <!--=============================
+        FOOTER START
+    ==============================-->
+    <footer class="footer">
+        <div class="container container_large">
+            <div class="row">
+                <div class="col-xl-7">
+                    <div class="footer_left pt_100 pb_80">
+                        <div class="row justify-content-between">
+                            <div class="col-xl-5 col-sm-10 col-md-4 wow fadeInLeft" data-wow-duration="2s">
+                                <div class="footer_description">
+                                    <a class="footer_logo" href="index.html">
+                                        <img src="static/images/footer_logo.png" alt="logo" class="img-fluid w-100">
+                                    </a>
+                                    <p>Lorem ipsum dolor sit amet, consectetu adipiscing elit. Aenean quis orci sit amet
+                                        odio maximus sagittis et eu odio.</p>
+                                    <ul class="d-flex flex-wrap">
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 col-md-4 wow fadeInLeft" data-wow-duration="1.5s">
+                                <div class="footer_link">
+                                    <h4>Navigation</h4>
+                                    <ul>
+                                        <li><a href="index.html">Home One</a></li>
+                                        <li><a href="property.html">Properties Right</a></li>
+                                        <li><a href="property_details.html">Properties List</a></li>
+                                        <li><a href="property_details.html">Property Details</a></li>
+                                        <li><a href="agent.html">Agents Listing</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 col-md-4 wow fadeInLeft" data-wow-duration="1s">
+                                <div class="footer_link">
+                                    <h4>Important Link</h4>
+                                    <ul>
+                                        <li><a href="dashboard.html">Dashboard</a></li>
+                                        <li><a href="dashboard_wishlist.html">Wishlist</a></li>
+                                        <li><a href="dashboard_profile.html">Change Password</a></li>
+                                        <li><a href="about_us.html">About Us</a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 wow fadeInRight" data-wow-duration="1.5s">
+                    <div class="footer_right">
+                        <h4>Get in Touch with Us</h4>
+                        <form action="#">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="footer_form_input">
+                                        <input type="text" placeholder="First name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="footer_form_input">
+                                        <input type="text" placeholder="Last name">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="footer_form_input">
+                                        <input type="email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="footer_form_input">
+                                        <input type="text" placeholder="Phone number">
+                                    </div>
+                                </div>
+                                <div class="col-xl-12">
+                                    <div class="footer_form_input">
+                                        <textarea rows="2" placeholder="Message"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-xl-12">
+                                    <button class="common_btn footer_btn">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy_right wow fadeInUp" data-wow-duration="1.5s">
+            <div class="container container_large">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="copyright_area d-flex flex-wrap justify-content-between">
+                            <p>© 2024 MaxLand All Rights Reserved</p>
+                            <ul class="d-flex flex-wrap">
+                                <li><a href="privacy_policy.html">Privacy Policy </a></li>
+                                <li><a href="terms_condition.html">Term of Service</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--=============================
+        FOOTER END
+    ==============================-->
+
+
+    <!--================================
+        SCROLL BUTTON START
+    =================================-->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+        </svg>
+    </div>
+    <!--================================
+        SCROLL BUTTON END
+    =================================-->
+
+
+    <!--jquery library js-->
+    <script src="static/js/jquery-3.7.1.min.js"></script>
+    <!--bootstrap js-->
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <!--font-awesome js-->
+    <script src="static/js/Font-Awesome.js"></script>
+    <!--nice-select js-->
+    <script src="static/js/jquery.nice-select.min.js"></script>
+    <!--select-2 js-->
+    <script src="static/js/select2.min.js"></script>
+    <!--slick js-->
+    <script src="static/js/slick.min.js"></script>
+    <!--marquee js-->
+    <script src="static/js/jquery.marquee.min.js"></script>
+    <!--YTPlayer js-->
+    <script src="static/js/jquery.youtube-background.min.js"></script>
+    <!--wow js-->
+    <script src="static/js/wow.min.js"></script>
+    <!--animated barfiller js-->
+    <script src="static/js/animated_barfiller.js"></script>
+    <!--simple-bar-graph js-->
+    <script src="static/js/jquery.simple-bar-graph.min.js"></script>
+    <!--sticky sidebar js-->
+    <script src="static/js/sticky_sidebar.js"></script>
+    <!--summernote js-->
+    <script src="static/js/summernote.min.js"></script>
+    <!--scroll button js-->
+    <script src="static/js/scroll_button.js"></script>
+    <!--main/custom js-->
+    <script src="static/js/script.js"></script>
+
+
+
+</body></html>

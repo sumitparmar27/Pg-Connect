@@ -1,0 +1,344 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi">
+    <title>MaxLand - Real Estate & Property HTML5 Template</title>
+    <link rel="icon" type="image/png" href="static/images/favicon.png">
+    <link rel="stylesheet" href="static/css/all.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/nice-select.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+    <link rel="stylesheet" href="static/css/select2.min.css">
+    <link rel="stylesheet" href="static/css/animate.css">
+    <link rel="stylesheet" href="static/css/animated_barfiller.css">
+    <link rel="stylesheet" href="static/css/summernote.min.css">
+    <link rel="stylesheet" href="static/css/scroll_button.css">
+    <link rel="stylesheet" href="static/css/utilities.css">
+    <link rel="stylesheet" href="static/css/jquery.simple-bar-graph.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/responsive.css">
+</head>
+
+<body>
+
+    <!--=========================
+        DASHBOARD INFO START
+    ==========================-->
+    <section class="dashboard">
+        {% include 'dashboard_sidebar.html' %}
+        <div class="dashboard_content">
+            <h2 class="dashboard_title">add PG <a class="common_btn" href="/dashboard_property">all
+                    properties</a>
+            </h2>
+            <div class="dashboard_add_property">
+                <form action="/insertpgdata" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="add_property_info wow fadeInUp" data-wow-duration="1.5s">
+                        <h3>Basic Information</h3>
+                            <div class="row">
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>PG Name</label>
+                                        <input type="text" placeholder="PG Name" name="name">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>PG Types</label>
+                                        <select class="select_2" name="pgtype">
+                                            <option value="">Select Type</option>
+                                            {% for i in typedata %}
+                                                <option value="{{ i.id }}">{{i.name}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>sharing choice</label>
+                                        <select class="select_2" name="sharing">
+                                            <option value="">select choice</option>
+                                            <option value="1 sharing">1 sharing</option>
+                                            <option value="2 sharing">2 sharing</option>
+                                            <option value="3 sharing">3 sharing</option>
+                                            <option value="4 sharing">4 sharing</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>Area</label>
+                                        <input type="text" placeholder="Area" name="area">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>Land Mark</label>
+                                        <input type="text" placeholder="LandMark" name="landmark">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>Address</label>
+                                        <textarea name="address" cols="" rows="1" placeholder="Enter Address"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>Pincode</label>
+                                        <input type="text" placeholder="Pincode" name="pincode">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>Price</label>
+                                        <input type="text" placeholder="Price" name="price">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>Status</label>
+                                        <select class="select_2" name="status">
+                                            <option value="">Status</option>
+                                            <option value="Available">Available</option>
+                                            <option value="Not Available">Not Available</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>Description</label>
+                                        <textarea name="description" cols="" rows="1" placeholder="Enter Description"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="add_property_info wow fadeInUp" data-wow-duration="1.5s">
+                        <h3>Others Information</h3>
+                            <div class="row">
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>Total Room</label>
+                                        <input type="text" placeholder="14" name="room">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>Bed</label>
+                                        <input type="text" placeholder="8" name="bed">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>Bathroom</label>
+                                        <input type="text" placeholder="4" name="bathroom">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>Kitchen</label>
+                                        <input type="text" placeholder="1" name="kitchen">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>balcony</label>
+                                        <input type="text" placeholder="1" name="balcony">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4">
+                                    <div class="add_property_input">
+                                        <label>Parking Place</label>
+                                        <input type="text" placeholder="5" name="parking">
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="add_property_info wow fadeInUp" data-wow-duration="1.5s">
+                        <h3>Image, PDF And Video</h3>
+                            <div class="row">
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>Upload image 1</label>
+                                        <input type="file" id="files" name="img1" multiple>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>Upload image 2</label>
+                                        <input type="file" name="img2">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>Upload image 3</label>
+                                        <input type="file" name="img3">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4 col-md-6">
+                                    <div class="add_property_input">
+                                        <label>Upload image 4</label>
+                                        <input type="file" name="img4">
+                                    </div>
+                                </div>
+                                <div class="col-xxl-4">
+                                    <div class="add_property_input">
+                                        <label>Upload Video </label>
+                                        <input type="file" name="video">
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                   <div class="add_property_info add_property_aminities wow fadeInUp" data-wow-duration="1.5s">
+    <h3>Services</h3>
+    <div class="row">
+        <div class="col-12">
+            <input type="hidden" id="selected_services" name="selected_services" class="form-control" placeholder="Selected Services" readonly>
+        </div>
+
+        <div class="col-xxl-3 col-sm-6 col-lg-4">
+            <div class="form-check">
+                <input class="form-check-input service-checkbox" type="checkbox" value="Air Condition" id="flexCheck1">
+                <label class="form-check-label" for="flexCheck1">Air Condition</label>
+            </div>
+        </div>
+
+        <div class="col-xxl-3 col-sm-6 col-lg-4">
+            <div class="form-check">
+                <input class="form-check-input service-checkbox" type="checkbox" value="HouseKeeping" id="flexCheck2">
+                <label class="form-check-label" for="flexCheck2">HouseKeeping</label>
+            </div>
+        </div>
+
+        <div class="col-xxl-3 col-sm-6 col-lg-4">
+            <div class="form-check">
+                <input class="form-check-input service-checkbox" type="checkbox" value="Balcony" id="flexCheck3">
+                <label class="form-check-label" for="flexCheck3">Balcony</label>
+            </div>
+        </div>
+
+        <div class="col-xxl-3 col-sm-6 col-lg-4">
+            <div class="form-check">
+                <input class="form-check-input service-checkbox" type="checkbox" value="Bike Parking" id="flexCheck4">
+                <label class="form-check-label" for="flexCheck4">Bike Parking</label>
+            </div>
+        </div>
+
+        <div class="col-xxl-3 col-sm-6 col-lg-4">
+            <div class="form-check">
+                <input class="form-check-input service-checkbox" type="checkbox" value="Cable TV" id="flexCheck5">
+                <label class="form-check-label" for="flexCheck5">Cable TV</label>
+            </div>
+        </div>
+
+        <div class="col-xxl-3 col-sm-6 col-lg-4">
+            <div class="form-check">
+                <input class="form-check-input service-checkbox" type="checkbox" value="Wi-Fi" id="flexCheck6">
+                <label class="form-check-label" for="flexCheck6">Wi-Fi</label>
+            </div>
+        </div>
+
+        <div class="col-xxl-3 col-sm-6 col-lg-4">
+            <div class="form-check">
+                <input class="form-check-input service-checkbox" type="checkbox" value="Reservations" id="flexCheck7">
+                <label class="form-check-label" for="flexCheck7">Reservations</label>
+            </div>
+        </div>
+
+        <div class="col-xxl-3 col-sm-6 col-lg-4">
+            <div class="form-check">
+                <input class="form-check-input service-checkbox" type="checkbox" value="Washroom" id="flexCheck8">
+                <label class="form-check-label" for="flexCheck8">Washroom</label>
+            </div>
+        </div>
+
+        <div class="col-xxl-3 col-sm-6 col-lg-4">
+            <div class="form-check">
+                <input class="form-check-input service-checkbox" type="checkbox" value="Kitchen" id="flexCheck9">
+                <label class="form-check-label" for="flexCheck9">Kitchen</label>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button class="common_btn" type="submit">Save</button>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let checkboxes = document.querySelectorAll(".service-checkbox");
+        let textBox = document.getElementById("selected_services");
+
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener("change", function () {
+                let selectedValues = Array.from(checkboxes)
+                    .filter(i => i.checked)
+                    .map(i => i.value)
+                    .join(", ");
+                textBox.value = selectedValues;
+            });
+        });
+    });
+</script>
+
+
+                </form>
+            </div>
+        </div>
+    </section>
+    <!--=========================
+        DASHBOARD INFO END
+    ==========================-->
+
+
+    <!--================================
+        SCROLL BUTTON START
+    =================================-->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+        </svg>
+    </div>
+    <!--================================
+        SCROLL BUTTON END
+    =================================-->
+
+
+    <!--jquery library js-->
+    <script src="static/js/jquery-3.7.1.min.js"></script>
+    <!--bootstrap js-->
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <!--font-awesome js-->
+    <script src="static/js/Font-Awesome.js"></script>
+    <!--nice-select js-->
+    <script src="static/js/jquery.nice-select.min.js"></script>
+    <!--select-2 js-->
+    <script src="static/js/select2.min.js"></script>
+    <!--slick js-->
+    <script src="static/js/slick.min.js"></script>
+    <!--marquee js-->
+    <script src="static/js/jquery.marquee.min.js"></script>
+    <!--YTPlayer js-->
+    <script src="static/js/jquery.youtube-background.min.js"></script>
+    <!--wow js-->
+    <script src="static/js/wow.min.js"></script>
+    <!--animated barfiller js-->
+    <script src="static/js/animated_barfiller.js"></script>
+    <!--simple-bar-graph js-->
+    <script src="static/js/jquery.simple-bar-graph.min.js"></script>
+    <!--sticky sidebar js-->
+    <script src="static/js/sticky_sidebar.js"></script>
+    <!--summernote js-->
+    <script src="static/js/summernote.min.js"></script>
+    <!--scroll button js-->
+    <script src="static/js/scroll_button.js"></script>
+    <!--main/custom js-->
+    <script src="static/js/script.js"></script>
+
+
+
+
+
+
+</body></html>

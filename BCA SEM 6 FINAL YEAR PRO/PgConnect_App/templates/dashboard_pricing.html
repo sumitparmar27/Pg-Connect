@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi">
+    <title>MaxLand - Real Estate & Property HTML5 Template</title>
+    <link rel="icon" type="image/png" href="static/images/favicon.png">
+    <link rel="stylesheet" href="static/css/all.min.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/nice-select.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+    <link rel="stylesheet" href="static/css/select2.min.css">
+    <link rel="stylesheet" href="static/css/animate.css">
+    <link rel="stylesheet" href="static/css/animated_barfiller.css">
+    <link rel="stylesheet" href="static/css/summernote.min.css">
+    <link rel="stylesheet" href="static/css/scroll_button.css">
+    <link rel="stylesheet" href="static/css/utilities.css">
+    <link rel="stylesheet" href="static/css/jquery.simple-bar-graph.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/responsive.css">
+    <!-- Custom CSS for light blue and minimal look -->
+<style>
+    .plan-card {
+        border-radius: 10px;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .plan-card:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .plan-card-header {
+        padding: 1.25rem;
+        background-color: #e9f7fd;
+        border-bottom: 2px solid #d0e9ff;
+    }
+
+    .plan-name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #2a3d66;
+    }
+
+    .plan-price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1e3b5a;
+    }
+
+    .plan-duration {
+        font-size: 0.875rem;
+        color: #4b5e7a;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+        background-color: #f9f9f9;
+    }
+
+    .card-footer {
+        padding: 1.25rem;
+        background-color: #f7f9fc;
+        border-top: 2px solid #d0e9ff;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 0.75rem;
+        text-transform: uppercase;
+        border-radius: 5px;
+        letter-spacing: 0.5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .btn-primary {
+        background-color: #58a6d8;
+        color: white;
+    }
+
+    .btn-secondary {
+        background-color: #b0d6eb;
+        color: white;
+    }
+
+    .btn-success {
+        background-color: #6dbf7e;
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background-color: #3f8bcd;
+    }
+
+    .btn-secondary:hover {
+        background-color: #9acbe2;
+    }
+
+    .btn-success:hover {
+        background-color: #58a45a;
+    }
+</style>
+</head>
+
+<body>
+
+    <!--=========================
+        DASHBOARD INFO START
+    ==========================-->
+    <section class="dashboard">
+        {% include 'dashboard_sidebar.html' %}
+
+         <div class="dashboard_content">
+                <h2 class="dashboard_title">Subscription Plan</h2>
+                 <div class="container my-5">
+    <h2 class="text-center mb-5" style="font-weight: bold; color: #2a3d66; font-size: 2rem;">Choose Your Subscription Plan</h2>
+    <div class="row">
+        {% for plan in plans %}
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card plan-card shadow-sm border-light rounded">
+                <div class="card-header text-center" style="background-color: #e9f7fd; border-bottom: 2px solid #d0e9ff;">
+                    <h4 class="plan-name mb-0" style="font-size: 1.25rem; font-weight: 600; color: #2a3d66;">{{ plan.plan_name }}</h4>
+                    <div class="plan-price" style="font-size: 1.5rem; font-weight: 700; color: #1e3b5a;">
+                        {% if plan.is_free_trial %}
+                            Free Trial
+                        {% else %}
+                            ₹{{ plan.price }}
+                        {% endif %}
+                    </div>
+                    <div class="plan-duration text-muted" style="font-size: 0.875rem; color: #4b5e7a;">{{ plan.plan_duration }} Days</div>
+                </div>
+                <div class="card-body" style="background-color: #f9f9f9;">
+                    <p><strong>Description:</strong> {{ plan.description }}</p>
+                    <p><strong>Discount:</strong> {{ plan.discount }}%</p>
+                    <p><strong>Renewable:</strong> {{ plan.renewable|yesno:"Yes,No" }}</p>
+                    <p><strong>Max Properties:</strong> {{ plan.max_properties }} Per Day</p>
+                </div>
+                <div class="card-footer text-center" style="background-color: #f7f9fc; border-top: 2px solid #d0e9ff;">
+                    {% if plan.status == "Active" %}
+                        <a href="#" class="btn btn-success btn-block" style="background-color: #6dbf7e; border: none; pointer-events: none;">Active</a>
+                    {% elif plan.status == "Expired" %}
+                        <a href="{% url 'create_order' plan.id %}" class="btn btn-warning btn-block" style="background-color: #ffc107; border: none;">Expired - Renew Now</a>
+                    {% else %}
+                        {% if plan.is_free_trial %}
+                            <a href="{% url 'create_order' plan.id %}" class="btn btn-primary btn-block" style="background-color: #58a6d8; border: none;">Start Free Trial</a>
+                        {% else %}
+                                <a href="{% url 'create_order' plan.id %}" class="btn btn-primary btn-block" style="background-color: #58a6d8; border: none;">Subscribe Now</a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+            </div>
+
+
+    </section>
+    <!--=========================
+        DASHBOARD INFO END
+    ==========================-->
+
+
+    <!--================================
+        SCROLL BUTTON START
+    =================================-->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+        </svg>
+    </div>
+    <!--================================
+        SCROLL BUTTON END
+    =================================-->
+
+
+    <!--jquery library js-->
+    <script src="static/js/jquery-3.7.1.min.js"></script>
+    <!--bootstrap js-->
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <!--font-awesome js-->
+    <script src="static/js/Font-Awesome.js"></script>
+    <!--nice-select js-->
+    <script src="static/js/jquery.nice-select.min.js"></script>
+    <!--select-2 js-->
+    <script src="static/js/select2.min.js"></script>
+    <!--slick js-->
+    <script src="static/js/slick.min.js"></script>
+    <!--marquee js-->
+    <script src="static/js/jquery.marquee.min.js"></script>
+    <!--YTPlayer js-->
+    <script src="static/js/jquery.youtube-background.min.js"></script>
+    <!--wow js-->
+    <script src="static/js/wow.min.js"></script>
+    <!--animated barfiller js-->
+    <script src="static/js/animated_barfiller.js"></script>
+    <!--simple-bar-graph js-->
+    <script src="static/js/jquery.simple-bar-graph.min.js"></script>
+    <!--sticky sidebar js-->
+    <script src="static/js/sticky_sidebar.js"></script>
+    <!--summernote js-->
+    <script src="static/js/summernote.min.js"></script>
+    <!--scroll button js-->
+    <script src="static/js/scroll_button.js"></script>
+    <!--main/custom js-->
+    <script src="static/js/script.js"></script>
+
+
+
+</body></html>

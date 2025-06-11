@@ -1,0 +1,438 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi">
+    <title>MaxLand - Real Estate & Property HTML5 Template</title>
+    <link rel="icon" type="image/png" href="/static/images/favicon.png">
+    <link rel="stylesheet" href="/static/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/nice-select.css">
+    <link rel="stylesheet" href="/static/css/slick.css">
+    <link rel="stylesheet" href="/static/css/select2.min.css">
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <link rel="stylesheet" href="/static/css/animated_barfiller.css">
+    <link rel="stylesheet" href="/static/css/summernote.min.css">
+    <link rel="stylesheet" href="/static/css/scroll_button.css">
+    <link rel="stylesheet" href="/static/css/utilities.css">
+    <link rel="stylesheet" href="/static/css/jquery.simple-bar-graph.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+</head>
+
+<body>
+
+    <!--=============================
+        MAIN MENU START
+    ==============================-->
+    {% include 'nav.html' %}
+
+    <div class="menu_offcanvas offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" style="background: url(/static/images/offcanvas_bg.jpg);">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><i class="far fa-times"></i></button>
+        <div class="offcanvas-body">
+            <a class="offcanvas_logo" href="index.html">
+                <img src="/static/images/PgConnect2.png" alt="pgconnect" class="img-fluid w-100">
+            </a>
+            <p class="short_description">Through a combination of lectures, readings, and discussions, students will
+                gain.</p>
+            <div class="offcanvas_blog">
+                <h3>Featured Listings</h3>
+                <ul>
+                    <li>
+                        <div class="img">
+                            <img src="/static/images/offcanvas_img_3.jpg" alt="blog" class="img-fluid w-100">
+                        </div>
+                        <div class="text">
+                            <p><i class="far fa-clock"></i> 10 Dec 2024</p>
+                            <a class="title" href="#">Hermosa Casa al Norte</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="img">
+                            <img src="/static/images/offcanvas_img_1.jpg" alt="blog" class="img-fluid w-100">
+                        </div>
+                        <div class="text">
+                            <p><i class="far fa-clock"></i> 10 Dec 2024</p>
+                            <a class="title" href="#">Stunning mansion in Reno</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="img">
+                            <img src="/static/images/offcanvas_img_2.jpg" alt="blog" class="img-fluid w-100">
+                        </div>
+                        <div class="text">
+                            <p><i class="far fa-clock"></i> 10 Dec 2024</p>
+                            <a class="title" href="#">Luxury Villa In Los Angeles</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="offcanvas_contact">
+                <h3>contact information</h3>
+                <a class="call" href="callto:40276328246">+(402) 763 282 46</a>
+                <a class="mail" href="mailto:example@gmail.com">example@gmail.com</a>
+                <ul class="d-flex flex-wrap">
+                    <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a class="youtube" href="#"><i class="fab fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--=============================
+        MAIN MENU END
+    ==============================-->
+
+
+    <!--=============================
+        BREADCRUMBS START
+    ==============================-->
+    <section class="breadcrumbs" style="background: url(/static/images/breadcrumbs_bg.jpg);">
+        <div class="breadcrumbs_overly">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 justify-content-center">
+                        <div class="breadcrumb_text wow fadeInUp" data-wow-duration="1.5s">
+                            <h1>PG Details</h1>
+                            <ul class=" d-flex flex-wrap justify-content-center">
+                                <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
+                                <li><a href="#">PG Details</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=============================
+        BREADCRUMBS END
+    ==============================-->
+
+
+    <!--=============================
+        PROPERTY DETAILS START
+    ==============================-->
+    <section class="property_details pt_120 xs_pt_100 pb_105 xs_pb_85">
+        <div class="container">
+            <div class="row wow fadeInUp" data-wow-duration="1.5s">
+                <div class=" col-xl-12">
+                    <div class="property_details_slider">
+                        <div class="row slider-for2">
+                            <div class="col-12">
+                                <div class="property_details_large_img">
+                                    <img src="/{{ data.img1 }}" alt="img-fluid w-100">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="property_details_large_img">
+                                    <img src="/{{ data.img2 }}" alt="img-fluid w-100">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="property_details_large_img">
+                                    <img src="/{{ data.img3 }}" alt="img-fluid w-100">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="property_details_large_img">
+                                    <img src="/{{ data.img4 }}" alt="img-fluid w-100">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row slider-nav2">
+                            <div class="col-xl-4">
+                                <div class="property_details_small_img">
+                                    <img src="/{{ data.img1 }}" alt="img-fluid w-100">
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="property_details_small_img">
+                                    <img src="/{{ data.img2 }}" alt="img-fluid w-100">
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="property_details_small_img">
+                                    <img src="/{{ data.img3 }}" alt="img-fluid w-100">
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="property_details_small_img">
+                                    <img src="/{{ data.img4 }}" alt="img-fluid w-100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt_50">
+                <div class="col-lg-12">
+                    <div class="single_property_details wow fadeInUp" data-wow-duration="1.5s">
+                        <div class=" d-flex flex-wrap justify-content-between">
+                            <h4>{{ data.name}}</h4>
+                        </div>
+                        <div class="property_details_address d-flex flex-wrap justify-content-between">
+                            <ul class="d-flex flex-wrap">
+                                <li><i class="fas fa-map-marker-alt"></i>{{data.address}}</li>
+                                <li><i class="far fa-clock"></i>Posting date: {{data.upload_datetime}}</li>
+                            </ul>
+                            <h3>Rs {{data.price}}</h3>
+                        </div>
+                        <ul class="flat_details d-flex flex-wrap">
+                            <li>
+                                <span><img src="/static/images/bad.png" alt="img" class="img-fluid w-100"></span>
+                                {{data.bed}}
+                            </li>
+                            <li>
+                                <span><img src="/static/images/bathtab.png" alt="img" class="img-fluid w-100"></span>
+
+                                {{data.Bathroom}}
+                            </li>
+                            <li>
+                                <span><img src="/static/images/parked-car.png" alt="img" class="img-fluid w-100"></span>
+                                {{data.parking}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="single_property_details mt_25 wow fadeInUp" data-wow-duration="1.5s">
+                        <h4>Description</h4>
+                        <p class=" property_dtls_decription">{{data.description}}</p>
+<!--                        <p class="property_dtls_decription pt_15">{{data.description}}</p>-->
+                    </div>
+                    <div class="single_property_details mt_25 wow fadeInUp" data-wow-duration="1.5s">
+                        <h4>PG Details</h4>
+                        <ul class=" property_apartment_details d-flex flex-wrap mt_10">
+                            <li>
+                                <p>PG ID:<span>{{data.id}}</span></p>
+                            </li>
+                            <li>
+                                <p>Rooms:<span>{{data.rooms}}</span></p>
+                            </li>
+                            <li>
+                                <p>PG Status:<span>{{data.status}}</span></p>
+                            </li>
+                            <li>
+                                <p>PG Price:<span>Rs.{{data.price}}</span></p>
+                            </li>
+                            <li>
+                                <p>Bed:<span>{{data.bed}}</span></p>
+                            </li>
+                            <li>
+                                <p>PG Type:<span>{{data.typeid}}</span></p>
+                            </li>
+                            <li>
+                                <p>PG sharing:<span>{{data.sharing}}</span></p>
+                            </li>
+                        </ul>
+                        <div class="property_facilities">
+                            <h4>Facilities</h4>
+                            <ul class="d-flex flex-wrap">
+                                {% if facilities_list %}
+                                    {% for facility in facilities_list %}
+                                        <li>{{ facility }}</li>
+                                    {% endfor %}
+                                {% else %}
+                                    <li>No facilities listed.</li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                <div class="single_property_details mt_25 wow fadeInUp" data-wow-duration="1.5s">
+                    <h4>PG Video</h4>
+                    <div class="apertment_video" style="width: 100%; max-width: 1050px; height: auto; margin: auto;">
+                        <video src="/{{ data.video }}" controls style="width: 100%; height: 500px; object-fit: cover;"></video>
+                    </div>
+                </div>
+                    <div class="property__two">
+                        <div class="property__two__content">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <!-- Submit button to confirm selected services -->
+                                {%if request.session.log_id%}
+                                {%if request.session.log_role != pg_owner %}
+                                <div class="d-grid mt-4">
+                                    <button type="submit" class="btn btn-primary">Book Now</button>
+                                </div>
+                                {%else%}
+                                {%endif%}
+                                {%endif%}
+                            </form>
+
+                            {% if razorpay_payment %}
+                                <form method="POST" action="{% url 'payment_status' %}" class="mt-4">
+                                    {% csrf_token %}
+                                    <script
+                                        src="https://checkout.razorpay.com/v1/checkout.js"
+                                        data-key="{{ razorpay_payment.key }}"
+                                        data-amount="{{ razorpay_payment.amount }}"
+                                        data-currency="INR"
+                                        data-order_id="{{ razorpay_payment.order_id }}"
+                                        data-buttontext="Pay with Razorpay"
+                                        data-name="Your Company"
+                                        data-description="Complete your payment"
+                                        data-image="https://example.com/logo.jpg"
+                                        data-theme.color="#F37254"
+                                    ></script>
+                                    <input type="hidden" name="hidden" />
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="single_property_details mt_25 wow fadeInUp" data-wow-duration="1.5s">
+                        <h4>Customer Reviews</h4>
+                        <div class=" apartment_review">
+                        </div>
+                        <div class="apartment_review_area">
+                            <h4>{{ reviews.count }} Reviews</h4>
+                            {% for review in reviews %}
+                            <div class="single_review">
+                                <div class="single_review_text">
+                                    <h3>{{ review.name }}
+                                        <span>
+                                            {% for star in "12345"|slice:":review.rating"|make_list %}
+                                                <i class="fas fa-star"></i>
+                                            {% endfor %}
+                                        </span>
+                                    </h3>
+                                    <h6>{{ review.created_at|date:"F d, Y" }}</h6>
+                                    <p>{{ review.message }}</p>
+                                </div>
+                            </div>
+                            {% empty %}
+                            <p>No reviews yet. Be the first to review!</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="single_property_details details_apertment_form mt_25 wow fadeInUp" data-wow-duration="1.5s">
+                    <h4>Leave a Review</h4>
+                    <form method="POST" class="apertment_form" action="{% url 'submit_review' data.id %}">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="apertment_form_input">
+                                    <label>Name *</label>
+                                    <input type="text" name="name" placeholder="Enter your Name" required>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="apertment_form_input">
+                                    <label>Email *</label>
+                                    <input type="email" name="email" placeholder="Enter your Email" required>
+                                </div>
+                            </div>
+                            <div class="col-xl-12">
+                                <div class="apertment_form_input">
+                                    <label>Rating</label>
+                                    <ul class="d-flex flex-wrap" id="rating-stars">
+                                        <li><i class="fas fa-star" data-value="1"></i></li>
+                                        <li><i class="fas fa-star" data-value="2"></i></li>
+                                        <li><i class="fas fa-star" data-value="3"></i></li>
+                                        <li><i class="fas fa-star" data-value="4"></i></li>
+                                        <li><i class="fas fa-star" data-value="5"></i></li>
+                                    </ul>
+                                    <input type="hidden" name="rating" id="rating" />
+                                    <textarea name="message" rows="6" placeholder="Enter your message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-xl-12">
+                                <div class="form-check blog_checkbox">
+                                    <input class="form-check-input" type="checkbox" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">Save my name, email, and website in this browser for the next time I comment.</label>
+                                </div>
+                            </div>
+                            <div class="col-xl-12">
+                                <button type="submit" class="common_btn">Submit Review</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                    <script>
+                        const stars = document.querySelectorAll('#rating-stars i');
+                        const ratingInput = document.getElementById('rating');
+
+                        stars.forEach(star => {
+                            star.addEventListener('click', function () {
+                                const ratingValue = this.getAttribute('data-value');
+                                ratingInput.value = ratingValue;
+
+                                // Highlight selected stars
+                                stars.forEach(s => s.classList.remove('selected'));
+                                for (let i = 0; i < ratingValue; i++) {
+                                    stars[i].classList.add('selected');
+                                }
+                            });
+                        });
+                    </script>
+                    <style>
+                        #rating-stars i.selected {
+                            color: gold;
+                        }
+                    </style>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!--=============================
+        PROPERTY DETAILS END
+    ==============================-->
+
+
+    <!--=============================
+        FOOTER START
+    ==============================-->
+    {% include 'footer.html' %}
+    <!--=============================
+        FOOTER END
+    ==============================-->
+
+
+    <!--================================
+        SCROLL BUTTON START
+    =================================-->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+        </svg>
+    </div>
+    <!--================================
+        SCROLL BUTTON END
+    =================================-->
+
+
+    <!--jquery library js-->
+    <script src="/static/js/jquery-3.7.1.min.js"></script>
+    <!--bootstrap js-->
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <!--font-awesome js-->
+    <script src="/static/js/Font-Awesome.js"></script>
+    <!--nice-select js-->
+    <script src="/static/js/jquery.nice-select.min.js"></script>
+    <!--select-2 js-->
+    <script src="/static/js/select2.min.js"></script>
+    <!--slick js-->
+    <script src="/static/js/slick.min.js"></script>
+    <!--marquee js-->
+    <script src="/static/js/jquery.marquee.min.js"></script>
+    <!--YTPlayer js-->
+    <script src="/static/js/jquery.youtube-background.min.js"></script>
+    <!--wow js-->
+    <script src="/static/js/wow.min.js"></script>
+    <!--animated barfiller js-->
+    <script src="/static/js/animated_barfiller.js"></script>
+    <!--simple-bar-graph js-->
+    <script src="/static/js/jquery.simple-bar-graph.min.js"></script>
+    <!--sticky sidebar js-->
+    <script src="/static/js/sticky_sidebar.js"></script>
+    <!--summernote js-->
+    <script src="/static/js/summernote.min.js"></script>
+    <!--scroll button js-->
+    <script src="/static/js/scroll_button.js"></script>
+    <!--main/custom js-->
+    <script src="/static/js/script.js"></script>
+
+
+
+</body></html>

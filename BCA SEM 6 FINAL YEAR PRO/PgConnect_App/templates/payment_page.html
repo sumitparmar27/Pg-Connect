@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi">
+    <title>MaxLand - Real Estate & Property HTML5 Template</title>
+    <link rel="icon" type="image/png" href="static/images/favicon.png">
+    <link rel="stylesheet" href="../static/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/nice-select.css">
+    <link rel="stylesheet" href="../static/css/slick.css">
+    <link rel="stylesheet" href="../static/css/select2.min.css">
+    <link rel="stylesheet" href="../static/css/animate.css">
+    <link rel="stylesheet" href="../static/css/animated_barfiller.css">
+    <link rel="stylesheet" href="../static/css/summernote.min.css">
+    <link rel="stylesheet" href="../static/css/scroll_button.css">
+    <link rel="stylesheet" href="../static/css/utilities.css">
+    <link rel="stylesheet" href="../static/css/jquery.simple-bar-graph.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/responsive.css">
+</head>
+
+<body>
+
+    <!--=========================
+        DASHBOARD INFO START
+    ==========================-->
+    <section class="dashboard">
+        {% include 'dashboard_sidebar.html' %}
+<div class="dashboard_content">
+            <h2 class="dashboard_title">Payment</h2>
+
+<form method="POST" action="{% url 'payment_success' %}">
+  {% csrf_token %}
+  <input type="hidden" name="razorpay_order_id" id="razorpay_order_id">
+  <input type="hidden" name="razorpay_payment_id" id="razorpay_payment_id">
+  <input type="hidden" name="razorpay_signature" id="razorpay_signature">
+
+  <script
+    src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="{{ razorpay_key_id }}"
+    data-amount="{{ amount|floatformat:0 }}00"
+    data-currency="{{ currency }}"
+    data-order_id="{{ razorpay_order_id }}"
+    data-buttontext="Pay with Razorpay"
+    data-name="{{ plan.name }}"
+    data-description="Purchase {{ plan.name }} Plan"
+    data-image="https://example.com/your_logo.jpg"
+    data-prefill.name="{{ request.user.username }}"
+    data-prefill.email="{{ request.user.email }}"
+    data-theme.color="#F37254"
+  ></script>
+
+  <input type="hidden" custom="Hidden Element" name="hidden" />
+</form>
+
+<script>
+    var options = {
+        "key": "{{ razorpay_key_id }}", // Enter the Key ID generated from the Dashboard
+        "amount": "{{ amount }}", // Amount is in currency subunits. Default is paise
+        "currency": "{{ currency }}", // Currency
+        "name": "{{ plan.name }}",
+        "description": "Purchase {{ plan.name }} Plan",
+        "image": "https://example.com/your_logo.jpg",
+        "order_id": "{{ razorpay_order_id }}", // Razorpay Order ID generated in backend
+
+        "handler": function (response) {
+            // Capture the Razorpay response and attach to form inputs
+            document.getElementById('razorpay_order_id').value = response.razorpay_order_id;
+            document.getElementById('razorpay_payment_id').value = response.razorpay_payment_id;
+            document.getElementById('razorpay_signature').value = response.razorpay_signature;
+
+            // Automatically submit the form after filling the fields
+            document.forms[0].submit();
+        },
+        "theme": {
+            "color": "#F37254"
+        }
+    };
+
+    var rzp1 = new Razorpay(options);
+    document.getElementById('pay-button').onclick = function (e) {
+        rzp1.open();
+        e.preventDefault();
+    };
+</script>
+</div>
+    </section>
+    <!--=========================
+        DASHBOARD INFO END
+    ==========================-->
+
+
+    <!--================================
+        SCROLL BUTTON START
+    =================================-->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+        </svg>
+    </div>
+    <!--================================
+        SCROLL BUTTON END
+    =================================-->
+
+
+    <!--jquery library js-->
+    <script src="static/js/jquery-3.7.1.min.js"></script>
+    <!--bootstrap js-->
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <!--font-awesome js-->
+    <script src="static/js/Font-Awesome.js"></script>
+    <!--nice-select js-->
+    <script src="static/js/jquery.nice-select.min.js"></script>
+    <!--select-2 js-->
+    <script src="static/js/select2.min.js"></script>
+    <!--slick js-->
+    <script src="static/js/slick.min.js"></script>
+    <!--marquee js-->
+    <script src="static/js/jquery.marquee.min.js"></script>
+    <!--YTPlayer js-->
+    <script src="static/js/jquery.youtube-background.min.js"></script>
+    <!--wow js-->
+    <script src="static/js/wow.min.js"></script>
+    <!--animated barfiller js-->
+    <script src="static/js/animated_barfiller.js"></script>
+    <!--simple-bar-graph js-->
+    <script src="static/js/jquery.simple-bar-graph.min.js"></script>
+    <!--sticky sidebar js-->
+    <script src="static/js/sticky_sidebar.js"></script>
+    <!--summernote js-->
+    <script src="static/js/summernote.min.js"></script>
+    <!--scroll button js-->
+    <script src="static/js/scroll_button.js"></script>
+    <!--main/custom js-->
+    <script src="static/js/script.js"></script>
+
+
+
+</body></html>

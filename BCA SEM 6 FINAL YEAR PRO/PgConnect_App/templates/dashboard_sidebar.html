@@ -1,0 +1,79 @@
+<div class="dashboard_sidebar">
+                <div class="sidebar_menu_icon">
+                    <i class="fas fa-bars dash_bar_icon"></i>
+                    <i class="far fa-times dash_close_icon"></i>
+                </div>
+
+                <a class="dashboard_sidebar_logo" href=" ">
+                    <img src="/static/images/PgConnect2.png" alt="pgconnect " class="img-fluid w-100">
+                </a>
+                <div class="dashboard_sidebar_user">
+                    <h3>{{request.session.log_name}}</h3>
+                    <p>{{request.session.log_email}}</p>
+                </div>
+                <div class="dashboard_sidebar_menu">
+                    <ul>x
+                        <li>
+                            <a href="/profile">
+                                <span>
+                                    <img src="/static/images/dashboard_icon_2.png" alt="icon" class="img-fluid w-100">
+                                </span>
+                                Profile
+                            </a>
+                        </li>
+                        {% if request.session.log_role == "pg_owner" %}
+                        <li>
+                            <a href="/dashboard_property">
+                                <span>
+                                    <img src="/static/images/dashboard_icon_3.png" alt="icon" class="img-fluid w-100">
+                                </span>
+                                PGs
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/subscriptionplan">
+                                <span>
+                                    <img src="/static/images/dashboard_icon_4.png" alt="icon" class="img-fluid w-100">
+                                </span>
+                                Subscription Plan
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if request.session.log_role == "user" %}
+                        <li>
+                            <a href="orders">
+                                <span>
+                                    <img src="/static/images/dashboard_icon_7.png" alt="icon" class="img-fluid w-100">
+                                </span>
+                                order
+                            </a>
+                        </li>
+                        <li>
+                            <a href="storefeedback">
+                                <span>
+                                    <img src="/static/images/dashboard_icon_5.png" alt="icon" class="img-fluid w-100">
+                                </span>
+                                Reviews
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/properties">
+                                <span>
+                                    <img src="/static/images/dashboard_icon_3.png" alt="icon" class="img-fluid w-100">
+                                </span>
+                                PG Details
+                            </a>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <a href="/logout">
+                                <span>
+                                    <img src="/static/images/dashboard_icon_8.png" alt="icon" class="img-fluid w-100">
+                                </span>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+</div>

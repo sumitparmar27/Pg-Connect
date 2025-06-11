@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+/* 🔷 Overlay Background with Blur Effect */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* 📌 Popup Container with Glassmorphism */
+.popup-container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    animation: fadeInScale 0.3s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ✨ Header with Icon */
+.popup-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.popup-header img {
+    width: 10px;
+    height: 10px;
+    filter: drop-shadow(2px 2px 6px rgba(255, 255, 255, 0.3));
+}
+
+.popup-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* 💬 Popup Message */
+.popup-container p {
+    font-size: 16px;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+/* 🔵 Login Button with Gradient */
+.popup-btn {
+    padding: 12px 22px;
+    background: linear-gradient(135deg, #007bff, #00d4ff);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.popup-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #0099cc);
+    transform: scale(1.05);
+}
+
+/* ❌ Close Button */
+.popup-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ccc;
+    transition: all 0.3s ease;
+}
+
+.popup-close:hover {
+    color: #ff4d4d;
+    transform: rotate(90deg);
+}
+
+/* 📢 Footer Link */
+.popup-footer {
+    margin-top: 15px;
+}
+
+.popup-footer p {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.popup-footer a {
+    color: #00d4ff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.popup-footer a:hover {
+    color: #ffcc00;
+}
+
+/* 🔄 Popup Animation */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 🖥️ Responsive Design */
+@media screen and (max-width: 480px) {
+    .popup-container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .popup-btn {
+        width: 100%;
+    }
+}
+
+
+</style>
+<script>
+    function showLoginPopup() {
+        document.getElementById("loginPopup").style.display = "flex";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let popup = document.getElementById("loginPopup");
+        let closePopupBtn = document.getElementById("closePopup");
+
+        closePopupBtn.addEventListener("click", function () {
+            popup.style.display = "none";
+        });
+
+        popup.addEventListener("click", function (event) {
+            if (event.target === popup) {
+                popup.style.display = "none";
+            }
+        });
+    });
+</script>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg main_menu">
+        <div class="container container_large">
+            <a class="navbar-brand" href=" ">
+                <img src="../static/images/PgConnect2.png" alt="Pgconnect" class="img-fluid">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars bar_icon"></i>
+                <i class="far fa-times close_icon"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about_us">about us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/properties">PG Properties</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contactus">contact</a>
+                    </li>
+
+                </ul>
+                <ul class="menu_right d-flex align-items-center">
+                    <li>
+                        {% if request.session.log_id %}
+                            <a class="user_icon" href="/logout">
+                                <span>
+                                    <img src="../static/images/user_icon_3.png" alt="user" class="img-fluid w-100">
+                                </span>
+                                Logout
+                            </a>
+                            <li>
+                                 <a class="nav-link" href="/profile">Profile</a>
+                            </li>
+                        {% else %}
+                            <a class="user_icon" href="/sign_in">
+                                <span>
+                                    <img src="../static/images/user_icon_3.png" alt="user" class="img-fluid w-100">
+                                </span>
+                                Login
+                            </a>
+                        {% endif %}
+                    </li>
+                    <li class="manu_btn">
+                        {% if request.session.role == "pg_owner" %}
+                            <a class="common_btn" href="/dashboard_add_property">Add Listing</a>
+                        {% else %}
+                            <a class="common_btn" href="#" onclick="showLoginPopup()">Add Listing</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+</nav>
+<div id="loginPopup" class="popup-overlay">
+    <div class="popup-container">
+        <span id="closePopup" class="popup-close">&times;</span>
+        <div class="popup-header">
+<!--            <img src="static/images/lock (1).png" alt="Login Required">-->
+            <h2>Access Restricted</h2>
+        </div>
+        <p>You must be logged in as a <b>PG Owner</b> to add a listing.</p>
+        <button class="popup-btn" onclick="window.location.href='/sign_in'">Login Now</button>
+        <div class="popup-footer">
+            <p>Don't have an account? <a href="/sign_up">Sign Up</a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
